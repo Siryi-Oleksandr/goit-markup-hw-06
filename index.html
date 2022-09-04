@@ -555,6 +555,16 @@
             </li>
           </ul>
         </div>
+        <form class="subscription" action="subscription">
+          <p class="social-title">Підпишіться на розсилку</p>
+          <input class="email" type="email" placeholder="E-mail" />
+          <button class="button" type="submit">
+            Підписатися
+            <svg class="send" width="24" height="24">
+              <use href="./images/sprite-icons.svg#send"></use>
+            </svg>
+          </button>
+        </form>
       </div>
     </footer>
 
@@ -565,7 +575,39 @@
     -->
     <div class="backdrop is-hidden" data-modal>
       <div class="modal">
-        <button type="button" data-modal-close>
+        <form name="order">
+          <h2>Залиште свої дані, ми вам передзвонимо</h2>
+          <div class="form-field">
+            <label for="name">Ім&#8217;я</label>
+            <input type="text" name="name" id="name" />
+          </div>
+
+          <div class="form-field">
+            <label for="tel">Телефон</label>
+            <input type="tel" name="phone_number" id="tel" />
+          </div>
+
+          <div class="form-field">
+            <label for="email">Пошта</label>
+            <input type="email" name="email" id="email" />
+          </div>
+
+          <div class="form-field">
+            <label for="comment">Коментар</label>
+            <textarea name="comment" id="comment" rows="5" placeholder="Введіть текст"></textarea>
+          </div>
+
+          <div class="licence">
+            <input type="checkbox" name="licence" id="licence" />
+            <label for="licence"
+              >Погоджуюся з розсилкою та приймаю <a class="licence-link" href="">Умови договору</a>
+            </label>
+          </div>
+
+          <button class="btn" type="submit">Відправити</button>
+        </form>
+
+        <button class="close" type="button" data-modal-close>
           <svg class="modal-close" width="11" height="11">
             <use href="./images/sprite-icons.svg#icon-cross"></use>
           </svg>
