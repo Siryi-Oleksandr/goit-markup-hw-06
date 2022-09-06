@@ -258,7 +258,7 @@ img {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   min-width: 216px;
   min-height: 50px;
-  border: transparent;
+  border: none;
 
   font-family: inherit;
   font-weight: 700;
@@ -647,7 +647,7 @@ footer .logo-studio {
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
-  border: transparent;
+  border: none;
 
   font-family: inherit;
   font-weight: 700;
@@ -673,7 +673,7 @@ footer .logo-studio {
   border-radius: 4px;
 
   min-height: 38px;
-  border: transparent;
+  border: none;
 
   color: var(--title-text-color);
   background-color: var(--secondary-bg-color);
@@ -917,6 +917,7 @@ form > h2 {
 }
 
 .form-field {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -937,11 +938,20 @@ form > h2 {
 
 .form-field input {
   padding: 11px 12px;
+  padding-left: 42px;
   width: 100%;
   height: 40px;
 
   border: 1px solid var(--modal-border-color);
   border-radius: 4px;
+
+  transition: background-color 250ms var(--cubic-bezier);
+}
+
+.text-field:hover,
+.text-field:focus {
+  cursor: pointer;
+  border-color: var(--accent-color);
 }
 
 .form-field textarea {
@@ -950,6 +960,10 @@ form > h2 {
 
   border: 1px solid var(--modal-border-color);
   border-radius: 4px;
+}
+
+.form-field textarea:focus {
+  border-color: var(--accent-color);
 }
 
 textarea {
@@ -964,8 +978,22 @@ textarea::placeholder {
   color: rgba(117, 117, 117, 0.5);
 }
 
+.text-field:focus {
+  border-color: var(--accent-color);
+}
+
+.text-field:focus + .form-icon {
+  fill: var(--accent-color);
+}
+
 .licence {
   margin-bottom: 30px;
+}
+
+.licence-lable {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .licence label {
@@ -975,6 +1003,44 @@ textarea::placeholder {
   letter-spacing: 0.03em;
 
   color: var(--primary-text-color);
+}
+
+.checkbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.licence .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--title-text-color);
+  border-radius: 4px;
+
+  background-origin: border-box;
+}
+
+.checkbox:checked + .icon {
+  background-color: var(--accent-bg-color);
+  border-color: var(--accent-color);
+}
+
+.form-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
 }
 
 form .licence-link {
@@ -999,7 +1065,7 @@ form .btn {
   border-radius: 4px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
-  border: transparent;
+  border: none;
 
   font-family: inherit;
   font-weight: 700;
